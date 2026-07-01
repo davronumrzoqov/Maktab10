@@ -44,12 +44,12 @@
     </style>
 
     <div class="center-form">
-        <form action="{{ route('admin.category.update', $empCategory->id) }}" method="POST" class="card p-4">
+        <form action="{{ route('admin.empCategory.update', $empCategory->id) }}" method="POST" class="card p-4">
             @csrf
             @method('PUT')
             <h5 class="card-header">Edit Category</h5>
 
-            <a href="{{ route('admin.category.index') }}" class="btn btn-success">⬅ Back</a>
+            <a href="{{ route('admin.empCategory.index') }}" class="btn btn-success">⬅ Back</a>
 
             <div class="mb-4">
                 <label for="name_uz" class="form-label">Name (uz)</label>

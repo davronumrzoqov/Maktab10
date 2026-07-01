@@ -14,7 +14,7 @@ class RolePermissionsSeeder extends Seeder
     public function run(): void
     {
         // Rollar (agar mavjud bo‘lsa, qayta yaratmaydi)
-        $superAdmin = Role::firstOrCreate(['name' => 'Super Admin', 'guard_name' => 'web']);
+        $superAdmin = Role::firstOrCreate(['name' => 'SuperAdmin', 'guard_name' => 'web']);
         $admin = Role::firstOrCreate(['name' => 'Admin', 'guard_name' => 'web']);
         $creator = Role::firstOrCreate(['name' => 'Creator', 'guard_name' => 'web']);
 

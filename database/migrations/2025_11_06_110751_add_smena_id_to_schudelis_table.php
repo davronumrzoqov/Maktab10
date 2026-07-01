@@ -10,10 +10,7 @@ return new class extends Migration
     {
         Schema::table('schudelis', function (Blueprint $table) {
             $table->unsignedBigInteger('smena_id')->after('id')->nullable();
-
-            // Agar bu ustun boshqa jadvalga bog‘lanadigan bo‘lsa (masalan, smena_types)
-            // foreign key qo‘shish tavsiya etiladi:
-            // $table->foreign('smena_id')->references('id')->on('smena_types')->onDelete('cascade');
+            $table->foreign('smena_id')->references('id')->on('smena_types')->onDelete('cascade');
         });
     }
 

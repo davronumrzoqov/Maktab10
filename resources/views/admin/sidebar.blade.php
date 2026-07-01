@@ -209,7 +209,7 @@
 <aside class="sidebar" id="sidebar">
     <div class="logo d-flex align-items-center justify-content-center gap-2">
         <a href="{{ route('index') }}" class="d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('image/gerb.png') }}" alt="Logo" class="logo-img">
+            <img src="{{ asset('image/Gerb.png') }}" alt="Logo" class="logo-img">
             <span class="logo-text">10-Maktab</span>
         </a>
     </div>
@@ -225,7 +225,7 @@
         </li>
 
         <!-- SuperAdmin bo‘limlar -->
-        @hasanyrole('Super Admin')
+        @hasanyrole('SuperAdmin')
         <li><a href="{{ route('admin.roles.index') }}" class="nav-link {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}"><i class="bx bx-lock"></i><span>Rollar</span></a></li>
         <li><a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"><i class="bx bx-group"></i><span>Foydalanuvchilar</span></a></li>
         <li><a href="{{ route('admin.category.index') }}" class="nav-link {{ request()->routeIs('admin.category.*') ? 'active' : '' }}"><i class="bx bx-category"></i><span>Kategoriya</span></a></li>
