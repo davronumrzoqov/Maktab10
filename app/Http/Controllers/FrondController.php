@@ -62,9 +62,8 @@ class FrondController extends Controller
         )->get();
 
         $director = $teachers->first();
-        $parts = $director ? explode(' ', $director->name_uz) : [];
 
-        return view('frond.leaderShep', compact('teachers', 'parts'));
+        return view('frond.leaderShep', compact('teachers', 'director'));
     }
 
     // 👤 Rahbariyatdagi xodim tafsiloti

@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('category_tops', function (Blueprint $table) {
-            //
+            $table->dropColumn('url');
         });
     }
 };

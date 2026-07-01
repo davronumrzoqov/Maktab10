@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomePageImageTag extends Model
 {
-    protected $fillable = ['title_uz', 'title_ru', 'body_uz', 'body_ru'];
+    protected $fillable = ['title_uz', 'title_ru'];
 
 }

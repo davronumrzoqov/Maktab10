@@ -15,7 +15,8 @@ class Schudeli extends Model
         'week_day',
         'time',
         'room',
-        'file', // fayl uchun maydon
+        'file',
+        'image',
     ];
 
     // Har bir schudeli qaysi smenaga tegishli

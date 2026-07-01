@@ -92,7 +92,7 @@ class SchudeliController extends Controller
             'lesson_id' => 'required',
             'week_day' => 'required',
             'room' => 'required',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,pdf',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
             'time' => 'required',
         ]);
 
