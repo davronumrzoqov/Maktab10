@@ -60,7 +60,7 @@
                         <nav aria-label="breadcrumb">
                             <ol id="w5" class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('index', app()->getLocale()) }}">{{ __('message.home') }}</a>
+                                    <a href="{{ route('index') }}">{{ __('message.home') }}</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ __('message.Rahbariyat batafsil') }}</li>
                             </ol>

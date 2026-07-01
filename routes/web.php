@@ -126,9 +126,7 @@ Route::post('/ckeditor/upload', [\App\Http\Controllers\CKEditorController::class
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
 
     // Dashboard route
-    Route::resource('dashboard', DashboardController::class)->names([
-        'index' => 'dashboard',
-    ]);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Boshqa admin resource’lar
     Route::resources([

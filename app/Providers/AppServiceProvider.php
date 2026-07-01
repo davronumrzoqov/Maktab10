@@ -4,10 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
+use App\Models\CategoryTopp;
 use App\Models\SmenaType;
-use App\Models\Employee;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,20 +24,9 @@ class AppServiceProvider extends ServiceProvider
             App::setLocale($lang);
         });
 
-
-        // Global view ma’lumotlar
         View::composer('*', function ($view) {
             $view->with('smenatypes', SmenaType::all());
-        });
-
-        View::composer('leaderShipDetail', function ($view) {
-            $leaders = Employee::with('position', 'category')
-                ->whereHas('position', function ($query) {
-                    $query->where('name_uz', 'Direktor');
-                })
-                ->get();
-
-            $view->with('leaders', $leaders);
+            $view->with('categoryTop', Cache::remember('categoryTop', 3600, fn() => CategoryTopp::all()));
         });
     }
 }

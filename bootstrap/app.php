@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use \App\Http\Middleware\Language;
+use App\Http\Middleware\Language;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -14,7 +14,20 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(\Illuminate\Session\Middleware\StartSession::class);
         $middleware->append(Language::class);
+
+        $middleware->trustProxies(at: '*');
+        $middleware->trustProxies(headers:
+            \Illuminate\Http\Request::HEADER_X_FORWARDED_FOR |
+            \Illuminate\Http\Request::HEADER_X_FORWARDED_HOST |
+            \Illuminate\Http\Request::HEADER_X_FORWARDED_PORT |
+            \Illuminate\Http\Request::HEADER_X_FORWARDED_PROTO
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->shouldRenderJsonWhen(function (\Illuminate\Http\Request $request) {
+            if ($request->expectsJson()) {
+                return true;
+            }
+            return $request->is('api/*');
+        });
     })->create();

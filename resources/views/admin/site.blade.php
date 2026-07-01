@@ -366,8 +366,8 @@
 
         <!-- Js -->
         <script src="{{ asset('js/bootstrap.js') }}"></script>
-        <script src="{{ asset('https://code.jquery.com/jquery-3.6.0.min.js') }}"></script>
-        <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
         <script src="{{ asset('/js/tilt.jquery.js') }}"></script>
         <script src="{{ asset('/js/wow.min.js') }}"></script>

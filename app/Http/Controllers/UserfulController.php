@@ -85,6 +85,7 @@ class UserfulController extends Controller
         'title_ru' => 'required|string|max:255',
         'body_uz'  => 'required|string',
         'body_ru'  => 'required|string',
+        'url'      => 'required|url',
         'image'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
     ]);
 
@@ -104,8 +105,13 @@ class UserfulController extends Controller
         $requestData['image'] = $resource->image;
     }
 
-    // ❌ url va qr_code kerak emas
-    // shuning uchun ularni qo‘shmaymiz
+    if ($requestData['url'] !== $resource->url) {
+        $qrImage = 'qr_' . time() . '.png';
+        QrCode::format('png')
+            ->size(200)
+            ->generate($requestData['url'], public_path('admin/images/' . $qrImage));
+        $requestData['qr_code'] = $qrImage;
+    }
 
     $resource->update($requestData);
 
